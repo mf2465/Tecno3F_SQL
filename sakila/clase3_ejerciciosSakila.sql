@@ -6,7 +6,7 @@ select distinct first_name from sakila.customer;
 -- comienzo de los ejercicios --
 -- 1
 select actor_id, first_name, last_name from sakila.actor;
--- 2
+-- 2 no se entiende la consigna
 alter table customer
 change first_name Nombre varchar(45);
 describe customer;
@@ -52,3 +52,56 @@ select * from sakila.category where name != 'action';
 select * from sakila.film where rating != 'PG';
 -- 16
 select distinct rating from sakila.film where rating != 'PG';
+-- 17 no se entiende la consigna. La primer query da nula
+select * from sakila.payment;
+select * from sakila.payment where customer_id = 36 and amount > 0.99 and staff_id = 1 order by amount asc;
+select * from sakila.payment where customer_id = 36 or amount > 0.99 or staff_id = 1 order by amount asc;
+-- 18
+select * from sakila.customer;
+select first_name from sakila.customer where first_name IN ('Mary','Patricia');
+-- 19 el query con rental_duration > 50 arroja vacío
+select * from sakila.film;
+select * from sakila.film where special_features IN ('Trailers','Trailers,Deleted Scenes') and rating IN ('G','R') order by length asc;
+-- select * from sakila.film where special_features IN ('Trailers','Trailers,Deleted Scenes') and rating IN ('G','R') and rental_duration > 50 order by length asc;
+-- 20
+select * from sakila.category;
+select * from sakila.category where name NOT IN ('Action','Children','Animation');
+-- 21 film_text no posee contenido en sus registros
+select * from sakila.film_text;
+select * from sakila.film where title IN ('zorro ark','virgin daisy','united pilot');
+-- 22
+select * from sakila.city;
+SELECT * FROM sakila.city where city IN ('chiayi','dongying','fukuyama','kilis');
+-- 23
+select * from sakila.rental;
+select * from sakila.rental where customer_id between 300 and 500;
+select * from sakila.rental where customer_id between 300 and 500 and staff_id = 1 order by customer_id asc;
+-- 24
+select * from sakila.payment;
+select * from sakila.payment where amount between 3 and 5 order by amount desc;
+-- 25 idem 24
+-- 26
+select * from sakila.payment;
+select * from sakila.payment where amount between 2.99 and 4.99 and staff_id = 2 ;
+select * from sakila.payment where amount between 2.99 and 4.99 and staff_id = 2 and customer_id IN (1,2); -- arroja nula
+-- 27 
+select * from sakila.address;
+select * from sakila.address where city_id between 300 and 350;
+-- 28
+select * from sakila.film;
+select * from sakila.film where rental_rate between 0.99 and 2.99 and length <= 50 and replacement_cost < 20;
+-- 29 
+select * from sakila.actor;
+select * from sakila.actor where first_name like 'A%' and last_name like 'B%';
+-- 30
+select * from sakila.actor;
+select * from sakila.actor where first_name like'%a';
+select * from sakila.actor where first_name like'%a' and last_name like '%n';
+-- 31
+select * from sakila.actor;
+select * from sakila.actor where first_name like'%ne%' and last_name like '%ro%';
+-- 32
+select * from sakila.actor where first_name like 'a%e';
+-- 33
+select * from sakila.actor where first_name like'c%n' and last_name like 'g%';
+-- miguelflores.devops@gmail.com 20240827 --
