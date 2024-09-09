@@ -166,14 +166,29 @@ CREATE TABLE IF NOT EXISTS certificado (
     FOREIGN KEY (firma1) REFERENCES personal(idPersonal),
     FOREIGN KEY (firma2) REFERENCES personal(idPersonal)
     );
-    
-CREATE TABLE IF NOT EXISTS facturacion (
+  
+-- Proformas para enviar a la Fundación para que facture los trabajos del Laboratorio a la Empresa  
+-- encabezado
+CREATE TABLE IF NOT EXISTS facturacion ( 
 	idFacturacion INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	fecha datetime,
-    certificado int,
-    FOREIGN KEY (certificado) REFERENCES certificado(idCertificado)
+    empresa int,
+    presupuesto int, -- se utiliza para tener una referencia
+    monto_facturado float,
+    FOREIGN KEY (empresa) REFERENCES empresa(idEmpresa),
+    FOREIGN KEY (presupuesto) REFERENCES presupuesto(idPresupuesto)
     );
-    
+ 
+-- detalle o items a facturar
+-- Tabla intermedia para asociar certificados con facturación
+CREATE TABLE IF NOT EXISTS factura_certificado (
+	idFacturaCertificado INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	idFacturacion INT NOT NULL,
+	idCertificado INT NOT NULL,
+    FOREIGN KEY (idFacturacion) REFERENCES facturacion(idFacturacion),
+    FOREIGN KEY (idCertificado) REFERENCES certificado(idCertificado)
+    );
+       
 CREATE TABLE IF NOT EXISTS ficha_tecnica (
 	idFicha_tecnica INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     link varchar(255)
