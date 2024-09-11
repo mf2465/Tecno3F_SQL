@@ -71,26 +71,49 @@ CREATE TABLE IF NOT EXISTS personal (
     legajo VARCHAR (50) NOT NULL
     );    
     
+CREATE TABLE IF NOT EXISTS detalle_cotizacion (
+	idDetalle_cotizacion INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	detalle text,
+    observaciones varchar(255)
+    );
+
+CREATE TABLE IF NOT EXISTS cotizacion (
+	idCotizacion INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	cantidad int,
+    detalle_cotizacion int,
+    precio_unitario float,
+    valor_dolar float, -- para tener una referencia temporal del precio equivalente a la cotización del día de la confección
+    total float,
+    observaciones varchar(255),
+    FOREIGN KEY (detalle_cotizacion) REFERENCES detalle_cotizacion(idDetalle_cotizacion)
+    );    
+    
 CREATE TABLE IF NOT EXISTS presupuesto (
 	idPresupuesto INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	empresa int not null,
     usuario int,
     cotizador int not null, -- persona que realizó la cotización
     fecha datetime not null,
-    cantidad int,
-    descripcion varchar (255),
-    precio_unitario float,
-    valor_dolar float, -- para tener una referencia temporal del precio equivalente a la cotización del día de la confección
-    total float,
-    observaciones varchar(255),
     vigencia_oferta int,
     forma_pago varchar (50),
     plazo_entrega varchar (100),
+    observaciones varchar (255),
+    link varchar (255),
     FOREIGN KEY (empresa) REFERENCES empresa(idEmpresa),
     FOREIGN KEY (usuario) REFERENCES usuario(idUsuario),
     FOREIGN KEY (cotizador) REFERENCES personal(idPersonal)
     );
-    
+  
+-- detalle o items a presupuestar
+-- Tabla intermedia para asociar presupuesto con items cotizados
+CREATE TABLE IF NOT EXISTS presupuesto_cotizado (
+	idPresupuesto_cotizado INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	idPresupuesto INT NOT NULL,
+	idCotizacion INT NOT NULL,
+    FOREIGN KEY (idPresupuesto) REFERENCES presupuesto(idPresupuesto),
+    FOREIGN KEY (idCotizacion) REFERENCES cotizacion(idCotizacion)
+    );
+  
 CREATE TABLE IF NOT EXISTS remito_in (
 	idRemito_in INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     empresa int not null, 
@@ -169,23 +192,22 @@ CREATE TABLE IF NOT EXISTS certificado (
   
 -- Proformas para enviar a la Fundación para que facture los trabajos del Laboratorio a la Empresa  
 -- encabezado
-CREATE TABLE IF NOT EXISTS facturacion ( 
-	idFacturacion INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS a_facturacion ( 
+	idA_facturacion INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	fecha datetime,
     empresa int,
-    presupuesto int, -- se utiliza para tener una referencia
-    monto_facturado float,
+    ref_presupuesto int, -- se utiliza para tener una referencia
     FOREIGN KEY (empresa) REFERENCES empresa(idEmpresa),
-    FOREIGN KEY (presupuesto) REFERENCES presupuesto(idPresupuesto)
+    FOREIGN KEY (ref_presupuesto) REFERENCES presupuesto(idPresupuesto)
     );
  
 -- detalle o items a facturar
 -- Tabla intermedia para asociar certificados con facturación
-CREATE TABLE IF NOT EXISTS factura_certificado (
-	idFacturaCertificado INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	idFacturacion INT NOT NULL,
+CREATE TABLE IF NOT EXISTS a_facturacion_certificado (
+	idA_facturacion_certificado INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	idA_facturacion INT NOT NULL,
 	idCertificado INT NOT NULL,
-    FOREIGN KEY (idFacturacion) REFERENCES facturacion(idFacturacion),
+    FOREIGN KEY (idA_facturacion) REFERENCES a_facturacion(idA_facturacion),
     FOREIGN KEY (idCertificado) REFERENCES certificado(idCertificado)
     );
        
@@ -222,7 +244,7 @@ CREATE TABLE IF NOT EXISTS elemento (
     ensayo int,
     certificado int,
     observaciones varchar (255),
-    facturacion int,
+    a_facturacion int,
     remito_out int,
     FOREIGN KEY (tipo_elemento) REFERENCES tipo_elemento(idTipo_elemento),
 	FOREIGN KEY (status_elemento) REFERENCES status_elemento(idStatus_elemento),
@@ -231,6 +253,6 @@ CREATE TABLE IF NOT EXISTS elemento (
     FOREIGN KEY (remito_in) REFERENCES remito_in(idRemito_in),
     FOREIGN KEY (ensayo) REFERENCES ensayo(idEnsayo),
     FOREIGN KEY (certificado) REFERENCES certificado(idCertificado),
-    FOREIGN KEY (facturacion) REFERENCES facturacion(idFacturacion),
+    FOREIGN KEY (a_facturacion) REFERENCES a_facturacion(idA_facturacion),
     FOREIGN KEY (remito_out) REFERENCES remito_out(idRemito_out)
     ); 
