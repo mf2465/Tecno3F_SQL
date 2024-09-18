@@ -1,0 +1,51 @@
+idConsulta;consulta;idTurno;idDiagnostico
+NULL;Dolor de Cabeza y Mareos;1;12
+NULL;Dolor en el pecho y no puede respirar;2;14
+NULL;Erupción de la piel roja y con picazón;3;49
+NULL;Control de Tiroides;4;7
+NULL;Temblor en el cuerpo , mareos y sin fuerzas;5;6
+NULL;Control de Diabetes;6;2
+NULL;Control de Tiroides;7;7
+NULL;Control de Tiroides;8;7
+NULL;Inquietud, perdidad del cabello, nervios;9;11
+NULL;Fiebre, Vomitos y dolor de cabeza;10;39
+NULL;Fiebre, Vomitos, dolor de cabeza y vista;11;39
+NULL;Dolor Muscular y Fiebre;12;39
+NULL;Dolor Muscular;13;39
+NULL;Dolor en el costado izquierdo;14;43
+NULL;Dolor de garganta, no puedo comer nada;15;46
+NULL;Control de Fractura de muñeca izquierda;16;51
+NULL;Control de Fractura de tobillo;17;51
+NULL;Control de fisura en mano izquierda;18;51
+NULL;Control de fisura en mano Derecha;19;51
+NULL;Dolor en el Pecho, me cuesta respirar;20;44
+NULL;Ojo Hinchado, dolor de cabeza;21;47
+NULL;Picazon en los dos ojos;22;47
+NULL;Dolor en la vista y picazon;23;47
+NULL;Ojos Colorados y picazon;24;47
+NULL;Picazon en los dos ojos;25;47
+NULL;Picazon en todo el cuerpo y ronchas en los pies y en los brazos;26;48
+NULL;Picazon en todo el cuerpo y ronchas en los pies y en los brazos;27;49
+NULL;Control de Conjuntivitis;28;51
+NULL;Control de Sida;29;36
+NULL;Control de Sida;30;36
+NULL;Control de Sida;31;36
+NULL;Luego de comer pizzas me empece a sentir mal;32;33
+NULL;Picazon en todo el cuerpo y ronchas en los pies y en los brazos;33;33
+NULL;Luego de comer con la familia me empece a sentir mal hasta que me desmaye;34;33
+NULL;Me olvido todo lo que me dicen y no puedo retener informacion;35;27
+NULL;No puedo bajar de peso;36;8
+NULL;Hago ejercicios, me cuido con las comidas y aun asi no puedo recuperar mi peso;37;8
+NULL;Control de Peso;38;8
+NULL;Control de Cirugia en pierna derecha;39;51
+NULL;Control de Cirugia en el hombro izquiedo;40;51
+NULL;Control de Cirugia , vasectomia;41;51
+NULL;Dolor de garganta y al tragar me irrita mucho;42;46
+NULL;Dolor de Garganta ;43;46
+NULL;Dolor de Garganta, no puedo tomar nada frio y/o caliente;44;46
+NULL;Me cuesta ir al baño;45;35
+NULL;Me duele muchisimo el estomago;46;32
+NULL;Dolor de Cabeza , Mareos , fiebre y temblor;47;38
+NULL;Dolor en el estomago;48;43
+NULL;Picazon en todo el cuerpo y ronchas en los pies y en los brazos;49;50
+NULL;Picazon en todo el cuerpo y ronchas en los pies y en los brazos;50;50

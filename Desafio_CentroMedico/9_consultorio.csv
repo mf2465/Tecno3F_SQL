@@ -1,0 +1,7 @@
+idConsultorio;nombre;direccion;CP;telefono;mail;idProvincia;idLocalidad
+NULL;Sanatorio Otamendi;Av. Pueyrredón 1453;1118;(011) 1234567;info@sanatoriootamendi.com.ar;1;1
+NULL;Sanatorio Güemes;Solís 2154;1128;(011) 2345678;contacto@sanatorioguemes.com.ar;1;1
+NULL;Sanatorio de la Trinidad;Av. San Juan 2021;1141;(011) 3456789;info@sanatoriodelatrinidad.com.ar;1;1
+NULL;Sanatorio Finochietto;Av. Córdoba 2678;1181;(011) 4567890;consultas@sanatoriofinochietto.com;1;1
+NULL;Sanatorio Anchorena;Gallo 1330;1185;(011) 5678901;info@sanatorioanchorena.com.ar;1;1
+NULL;Sanatorio Agote;Agote 2212;1207;(011) 6789012;consultas@sanatorioagote.com.ar;1;1

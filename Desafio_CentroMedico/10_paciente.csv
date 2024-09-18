@@ -1,0 +1,26 @@
+idPaciente;Nombre;apellido;email;fechaNacimiento;direccion;dni;idGenero;idNacionalidad;idPlanObraSocial;idProvincia;idLocalidad
+NULL;Juan;Pérez;juanperez@example.com;1985-09-12;Av. Rivadavia 1234;34567890;1;1;1;1;1
+NULL;María;Rodríguez;mariarodriguez@example.com;1990-05-20;Calle Corrientes 567;40258943;2;1;2;1;1
+NULL;Carlos;López;carloslopez@example.com;1982-12-02;Av. Santa Fe 987;25987653;1;1;3;1;1
+NULL;Laura;Gómez;lauragomez@example.com;1995-07-18;Calle Florida 432;37894561;2;2;1;1;1
+NULL;Martín;Fernández;martinfernandez@example.com;1988-03-27;Av. Cabildo 2000;45637891;1;2;2;1;1
+NULL;Ana;Torres;anatorres@example.com;1992-11-05;Av. Córdoba 789;59874312;2;2;1;1;1
+NULL;Alejandro;Silva;alejandrosilva@example.com;1987-06-30;Calle Reconquista 123;67412938;1;3;6;1;1
+NULL;Carolina;Ramírez;carolramirez@example.com;1993-09-24;Av. Corrientes 456;89324617;2;3;6;1;1
+NULL;Andrés;Castro;andrescastro@example.com;1984-12-15;Calle Lavalle 789;72193648;3;3;10;1;5
+NULL;Sofia;Vargas;sofiavargas@example.com;1991-08-08;Av. Santa Fe 654;34509812;3;4;10;1;5
+NULL;Marta;García;martagarcia@example.com;1987-05-12;Av. Rivadavia 1234;345678901;3;4;17;1;6
+NULL;Pablo;López;pablolopez@example.com;1992-09-18;Calle Corrientes 567;402589432;3;4;17;1;7
+NULL;Ana;Fernández;anafernandez@example.com;1985-12-06;Av. Santa Fe 987;259876534;4;1;28;1;8
+NULL;Sofía;Rodríguez;sofiarodriguez@example.com;1990-07-20;Calle Florida 432;378945612;4;1;28;1;9
+NULL;Juan;Torres;juantorres@example.com;1988-03-27;Av. Cabildo 2000;456378913;4;2;35;1;11
+NULL;Laura;González;lauragonzalez@example.com;1994-11-14;Calle Córdoba 789;598743124;4;2;35;1;11
+NULL;Alejandro;Silva;alejandrosilva2@example.com;1986-06-30;Calle Reconquista 123;674129385;1;3;34;1;11
+NULL;Carolina;Ramírez;carolramirez2@example.com;1993-09-24;Av. Corrientes 456;893246176;3;3;33;1;20
+NULL;Andrés;Castro;andrescastro2@example.com;1983-02-16;Calle Lavalle 789;721936487;1;4;32;1;20
+NULL;Victoria;Peralta;victoriaperalta@example.com;1991-08-08;Av. Santa Fe 654;345098128;3;4;1;1;20
+NULL;facundo;sanchez;fs@gmail.com;1995-09-01;Calle 11;345098129;1;7;2;1;20
+NULL;florencia;miranda;fm@gmail.com;1995-08-11;Calle 22;345098130;2;7;3;1;19
+NULL;paula ;marengo;pm@gmail.com;1995-09-21;Calle 33;345098131;2;7;4;1;19
+NULL;agustina;suarez;as@gmail.com;1995-10-18;Calle 44;345098132;2;7;5;1;4
+NULL;silvina;lopez;sl@gmail.com;1969-04-30;Calle 55;345098133;2;7;7;1;4
