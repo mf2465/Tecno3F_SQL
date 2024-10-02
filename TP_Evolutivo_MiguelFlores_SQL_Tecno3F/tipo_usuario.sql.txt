@@ -1,0 +1,11 @@
+INSERT INTO tipo_usuario (tipo_usuario) VALUES
+('interno'),
+('externo'),
+('empresa'),
+('terceros'),
+('institucional'),
+('auditor'),
+('contabilidad'),
+('municipio'),
+('investigador'),
+('docente');

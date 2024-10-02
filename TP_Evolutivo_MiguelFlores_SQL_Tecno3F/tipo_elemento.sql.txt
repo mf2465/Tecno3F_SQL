@@ -1,0 +1,6 @@
+INSERT INTO tipo_elemento (tipo_elemento) VALUES
+('manguera'),
+('manómetro'),
+('bomba'),
+('recipiente'),
+('molinete');

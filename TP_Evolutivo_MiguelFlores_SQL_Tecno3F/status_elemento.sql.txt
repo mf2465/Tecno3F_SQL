@@ -1,0 +1,10 @@
+INSERT INTO status_elemento (status_elemento) VALUES
+('presupuestado'),
+('ingresado'),
+('ensayando'),
+('certificado'),
+('facturar'),
+('entregar'),
+('aprobado'),
+('rechazado'),
+('consultar');

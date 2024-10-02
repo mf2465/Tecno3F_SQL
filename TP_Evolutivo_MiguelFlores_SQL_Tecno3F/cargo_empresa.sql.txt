@@ -1,0 +1,12 @@
+INSERT INTO cargo_empresa (idCargoEmpresa, cargo_empresa) VALUES
+(NULL, 'auditor'),
+(NULL, 'dueño'),
+(NULL, 'calidad'),
+(NULL, 'administración'),
+(NULL, 'técnico'),
+(NULL, 'supervisor'),
+(NULL, 'mantenimiento'),
+(NULL, 'operario'),
+(NULL, 'logística'),
+(NULL, 'depósito'),
+(NULL, 'recepción');
