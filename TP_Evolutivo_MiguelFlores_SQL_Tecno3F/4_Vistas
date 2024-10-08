@@ -1,3 +1,4 @@
+
 CREATE OR REPLACE VIEW ultimo_turno_trabajadores_ensayo AS
 SELECT E.idEnsayo AS 'Nro_Ensayo', E.fecha AS 'Fecha', P.nombre AS 'Nombre' , P.apellido AS 'Apellido', P.legajo AS 'Legajo', P.funcion AS'Función'
 FROM ensayo as E
@@ -56,10 +57,11 @@ E.ficha_tecnica AS 'Ficha_tecnica', E.ensayo AS 'Ensayo', E.certificado AS 'Cert
 C.aptitud AS 'Aptitud'
 FROM elemento AS E
 INNER JOIN certificado AS C 
-ON E.certificado = C.idCertificado 
+ON E.certificado = C.idCertificado
+WHERE C.aptitud = 0 
 ;
 
-SELECT * FROM listado_elementos_rechazados_aviso_empresas where aptitud = 0;
+SELECT * FROM listado_elementos_rechazados_aviso_empresas;
 
 CREATE OR REPLACE VIEW elementos_rechazados AS
 SELECT 
@@ -72,10 +74,11 @@ SELECT
     C.aptitud
 FROM 
     elemento AS E
-right JOIN 
+INNER JOIN 
     certificado AS C ON E.certificado = C.idCertificado
 WHERE 
-    C.aptitud < 1;
+    C.aptitud < 1
+;
     
     select * from elementos_rechazados;
     
