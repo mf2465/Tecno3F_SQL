@@ -2884,7 +2884,7 @@ insert into status_elemento (idStatus_elemento, status_elemento) values (null, '
 -- select * from status_elemento;
 
 -- Tabla elemento
-insert into elemento (idElemento, tipo_elemento, status_elemento, tag_original, precinto, presupuesto, remito_in, ficha_tecnica, ensayo, certificado, observaciones, a_facturacion, remito_out) values (null, 5, 4, '2179272480', '9699510641', 28, 39, 9, 26, 27, 'ac lobortis vel dapibus at diam nam tristique tortor eu', 6, 47);
+insert into elemento (idElemento, tipo_elemento, status_elemento, tag_original, precinto, presupuesto, remito_in, ficha_tecnica, ensayo, certificado, observaciones, a_facturacion, remito_out) values (null, 5, 4, '2179272480', '9699510641', 28, 39, 9, 26, 31, 'ac lobortis vel dapibus at diam nam tristique tortor eu', 6, 47);
 insert into elemento (idElemento, tipo_elemento, status_elemento, tag_original, precinto, presupuesto, remito_in, ficha_tecnica, ensayo, certificado, observaciones, a_facturacion, remito_out) values (null, 2, 3, '1262835801', '1511536497', 22, 8, 41, 35, 3, 'scelerisque mauris sit amet eros suspendisse', 16, 17);
 insert into elemento (idElemento, tipo_elemento, status_elemento, tag_original, precinto, presupuesto, remito_in, ficha_tecnica, ensayo, certificado, observaciones, a_facturacion, remito_out) values (null, 2, 5, '1961018918', '9884873194', 37, 33, 28, 25, 44, 'nullam molestie nibh in lectus pellentesque', 42, 17);
 insert into elemento (idElemento, tipo_elemento, status_elemento, tag_original, precinto, presupuesto, remito_in, ficha_tecnica, ensayo, certificado, observaciones, a_facturacion, remito_out) values (null, 2, 3, '8164238309', '2535953099', 31, 14, 44, 49, 19, 'enim blandit mi in porttitor pede justo eu massa', 29, 40);
