@@ -48,14 +48,14 @@ independientemente si los elementos superaron satisfactoriamente los ensayos
 
 CREATE OR REPLACE VIEW listado_elementos_certificados_emitidos AS
 SELECT 
-    E.idElemento,
+	E.Certificado,
     TP.tipo_elemento,
+    E.idElemento,
     E.tag_original,
-    E.precinto,
-    E.Certificado
-FROM 
+    E.precinto
+    FROM 
     elemento AS E
-inner JOIN 
+INNER JOIN 
     tipo_elemento AS TP ON E.tipo_elemento = TP.idTipo_elemento
 order by E.Certificado asc;
 
@@ -84,6 +84,6 @@ FROM
 LEFT JOIN 
     certificado AS C ON E.certificado = C.idCertificado
 WHERE 
-    C.aptitud < 1;
+    C.aptitud =0;
     
     select * from elementos_rechazados;
