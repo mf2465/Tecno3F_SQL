@@ -36,10 +36,6 @@ LIMIT 1;
 
 SELECT * FROM ultimo_turno_trabajadores_ensayo;
 
--- select * from ensayo order by fecha desc limit 1;
-
--- select * from elemento;
--- select * from certificado;
 
 /* Se genera una VISTA para listar los certificados emitidos por el Laboratorio
 con el fin de contar con una memoria de los trabajos realizados
@@ -61,9 +57,6 @@ order by E.Certificado asc;
 
 select * from listado_elementos_certificados_emitidos;
 
--- select * from certificado where aptitud = 0;
--- select * from certificado;
--- select * from elemento;
 
 /* Se genera una VISTA para informar al sector de Calidad
 sobre los elementos que no resultaron APTOS 
@@ -86,4 +79,23 @@ LEFT JOIN
 WHERE 
     C.aptitud =0;
     
-    select * from elementos_rechazados;
+select * from elementos_rechazados;
+    
+/*
+Con esta VISTA se pretende comunicar por mail a todos los usuarios supervisores, técnicos y personal de mantenimiento
+un material de difusión del Laboratorio respecto a la posibilidad de certificar bajo una nueva norma de CALIDAD
+*/
+    
+
+CREATE OR REPLACE VIEW anuncio_circular_tecnica_NORMA_CALIDAD AS
+select U.nombre,U.apellido,U.email,E.nombre AS 'Empresa',CE.cargo_empresa 
+from usuario AS U 
+left join empresa as E
+on U.empresa = E.idEmpresa
+left join cargo_empresa as CE
+on U.cargo_empresa = CE.idCargoEmpresa
+WHERE CE.cargo_empresa IN ('supervisor','técnico','mantenimiento','calidad')
+order by U.empresa, CE.cargo_empresa
+;
+
+select * from anuncio_circular_tecnica_NORMA_CALIDAD;
