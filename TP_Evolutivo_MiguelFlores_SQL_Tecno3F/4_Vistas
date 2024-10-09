@@ -1,15 +1,3 @@
-
-CREATE OR REPLACE VIEW ultimo_turno_trabajadores_ensayo AS
-SELECT E.idEnsayo AS 'Nro_Ensayo', E.fecha AS 'Fecha', P.nombre AS 'Nombre' , P.apellido AS 'Apellido', P.legajo AS 'Legajo', P.funcion AS'Función'
-FROM ensayo as E
-LEFT JOIN personal as P
-ON E.operador1 = P.idPersonal
-WHERE P.funcion IN ('certificante','operario','ayudante')
-order by E.fecha desc
-limit 1;
-
-select * from ultimo_turno_trabajadores_ensayo;
-
 /*
 Se crea una VISTA para obtener la lista de personas que participaron del úiltimo ensayo del Laboratorio,
 para que puedan ser notificados por mail que entran en un ciclo de descanso de este tipo de trabajo 
@@ -48,20 +36,39 @@ LIMIT 1;
 
 SELECT * FROM ultimo_turno_trabajadores_ensayo;
 
-select * from certificado where aptitud = 0;
+-- select * from ensayo order by fecha desc limit 1;
 
-CREATE OR REPLACE VIEW listado_elementos_rechazados_aviso_empresas AS
+-- select * from elemento;
+-- select * from certificado;
+
+/* Se genera una VISTA para listar los certificados emitidos por el Laboratorio
+con el fin de contar con una memoria de los trabajos realizados
+independientemente si los elementos superaron satisfactoriamente los ensayos
+*/
+
+CREATE OR REPLACE VIEW listado_elementos_certificados_emitidos AS
 SELECT 
-E.tipo_elemento AS 'Elemento', E.tag_original AS 'TAG_original', E.precinto AS 'Precinto_anterior', E.remito_in AS 'Remito_ingreso',
-E.ficha_tecnica AS 'Ficha_tecnica', E.ensayo AS 'Ensayo', E.certificado AS 'Certificado',
-C.aptitud AS 'Aptitud'
-FROM elemento AS E
-INNER JOIN certificado AS C 
-ON E.certificado = C.idCertificado
-WHERE C.aptitud = 0 
-;
+    E.idElemento,
+    TP.tipo_elemento,
+    E.tag_original,
+    E.precinto,
+    E.Certificado
+FROM 
+    elemento AS E
+inner JOIN 
+    tipo_elemento AS TP ON E.tipo_elemento = TP.idTipo_elemento
+order by E.Certificado asc;
 
-SELECT * FROM listado_elementos_rechazados_aviso_empresas;
+select * from listado_elementos_certificados_emitidos;
+
+-- select * from certificado where aptitud = 0;
+-- select * from certificado;
+-- select * from elemento;
+
+/* Se genera una VISTA para informar al sector de Calidad
+sobre los elementos que no resultaron APTOS 
+para que no se le asignen nuevos precintos 
+*/
 
 CREATE OR REPLACE VIEW elementos_rechazados AS
 SELECT 
@@ -74,12 +81,9 @@ SELECT
     C.aptitud
 FROM 
     elemento AS E
-INNER JOIN 
+LEFT JOIN 
     certificado AS C ON E.certificado = C.idCertificado
 WHERE 
-    C.aptitud < 1
-;
+    C.aptitud < 1;
     
     select * from elementos_rechazados;
-    
-select count(idElemento) from elemento group by certificado;
