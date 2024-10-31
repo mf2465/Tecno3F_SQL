@@ -48,7 +48,7 @@ RETURNS date
 READS SQL DATA
 BEGIN
     DECLARE respuesta date;
-    SET respuesta = (SELECT last_session FROM usuario WHERE last_session = p_last_session);
+    SET respuesta = (SELECT last_session FROM usuario WHERE last_session BETWEEN DATE_SUB(NOW(), INTERVAL 180 DAY) AND NOW());
     RETURN respuesta;
 END
 $$
