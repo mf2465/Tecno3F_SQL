@@ -39,7 +39,7 @@ SELECT nombre, apellido, get_nombre_empresa(empresa) as 'Empresa', get_cargo_emp
 
 
 /*
-El departamento comercial lanza una promoción para todas las cotizaciones realizadas en el año 2024
+El departamento comercial lanza una promoción para todos los presupuestos realizados en el año 2024,
 donde se otorga un beneficio de acuerdo a la forma de pago. Se establece que para la cancelación con transferencia
 amplía el plazo a 90 días, si abona con tarjeta es de 60 y en caso de utilizar cheque, se reduce a 30.
 */
