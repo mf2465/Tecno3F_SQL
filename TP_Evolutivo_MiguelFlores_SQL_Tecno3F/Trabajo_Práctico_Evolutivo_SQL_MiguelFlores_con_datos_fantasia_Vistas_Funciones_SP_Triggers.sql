@@ -3039,7 +3039,12 @@ order by U.empresa, CE.cargo_empresa
 
 select * from anuncio_circular_tecnica_NORMA_CALIDAD;
 
-use servicios_terceros_lh;
+/*
+Tercera Parte del TRABAJO PRACTICO EVOLUTIVO
+
+Funciones
+
+*/
 
 /*
 Se desea invitar a todos los clientes (usuarios) del Laboratorio
@@ -3078,7 +3083,6 @@ $$
 
 SELECT nombre, apellido, get_nombre_empresa(empresa) as 'Empresa', get_cargo_empresa(cargo_empresa) as 'Cargo',email FROM usuario order by empresa,cargo_empresa;
 
-
 /*
 El departamento comercial lanza una promoción para todos los presupuestos realizados en el año 2024,
 donde se otorga un beneficio de acuerdo a la forma de pago. Se establece que para la cancelación con transferencia
@@ -3111,86 +3115,9 @@ SELECT idPresupuesto, get_nombre_empresa(empresa) AS 'Empresa', fecha, forma_pag
 FROM presupuesto where fecha >= '2024-01-01' order by Beneficio_promo2024 desc ;
 
 /*
+Tercera Parte del TRABAJO PRACTICO EVOLUTIVO
 
-TERCERA PARTE DEL TRABAJO PRACTICO EVOLUTIVO - Funciones -
-
-*/
-
-use servicios_terceros_lh;
-
-/*
-Se desea invitar a todos los clientes (usuarios) del Laboratorio
-a un evento a fin de año para celebrar nuestro 10 aniversario en el rubro.
-Se enviarán las tarjetas personalizadas a las distintas empresas a participar 
-*/
-
-DROP FUNCTION IF EXISTS get_nombre_empresa;
-
-DELIMITER $$
-CREATE FUNCTION get_nombre_empresa (p_empresa INT)
-RETURNS VARCHAR(255)
-
-READS SQL DATA
-
-BEGIN
-    DECLARE resultado VARCHAR(255);
-    SET resultado = (SELECT nombre FROM empresa WHERE idEmpresa = p_empresa);
-    RETURN resultado;
-END
-$$
-
-DROP FUNCTION IF EXISTS get_cargo_empresa;
-
-DELIMITER $$
-CREATE FUNCTION get_cargo_empresa (p_cargo_empresa INT)
-RETURNS VARCHAR(255)
-
-READS SQL DATA
-BEGIN
-    DECLARE retorno VARCHAR(255);
-    SET retorno = (SELECT cargo_empresa FROM cargo_empresa WHERE idCargoEmpresa = p_cargo_empresa);
-    RETURN retorno;
-END
-$$
-
-SELECT nombre, apellido, get_nombre_empresa(empresa) as 'Empresa', get_cargo_empresa(cargo_empresa) as 'Cargo',email FROM usuario order by empresa,cargo_empresa;
-
-
-/*
-El departamento comercial lanza una promoción para todos los presupuestos realizados en el año 2024,
-donde se otorga un beneficio de acuerdo a la forma de pago. Se establece que para la cancelación con transferencia
-amplía el plazo a 90 días, si abona con tarjeta es de 60 y en caso de utilizar cheque, se reduce a 30.
-*/
-
-
-DROP FUNCTION IF EXISTS promo2024;
-
-DELIMITER $$
-
-CREATE FUNCTION promo2024 (p_forma_pago VARCHAR(50))
-RETURNS VARCHAR(255)
-READS SQL DATA
-BEGIN
-    DECLARE beneficio VARCHAR(50);
-
-    IF p_forma_pago = 'transferencia' THEN
-        SET beneficio = 'Plazo: 90 días';
-    ELSEIF p_forma_pago = 'tarjeta' THEN
-        SET beneficio = 'Plazo: 60 días';
-    ELSEIF p_forma_pago = 'cheque' THEN
-        SET beneficio = 'Plazo: 30 días';
-    END IF;
-
-    RETURN beneficio;
-END $$
-
-SELECT idPresupuesto, get_nombre_empresa(empresa) AS 'Empresa', fecha, forma_pago, promo2024(forma_pago) AS 'Beneficio_promo2024'
-FROM presupuesto where fecha >= '2024-01-01' order by Beneficio_promo2024 desc ;
-
-
-/*
-
-TERCERA PARTE DEL TRABAJO PRACTICO EVOLUTIVO - STORE PROCEDURE -
+Store Procedure
 
 */
 
@@ -3206,7 +3133,7 @@ en que se realiza la consulta
 
 select * from usuario where last_session <= (now());
 
-DROP PROCEDURE usuario_inactivo;
+-- DROP PROCEDURE usuario_inactivo;
 
 DELIMITER $$
 
@@ -3229,7 +3156,7 @@ en este período del año. El procedimiento contempla la cantidad de días a par
 
 SELECT * FROM certificado;
 
-DROP PROCEDURE certificado_proximo_a_vencer;
+-- DROP PROCEDURE certificado_proximo_a_vencer;
 
 DELIMITER $$
 
@@ -3254,12 +3181,11 @@ $$
 CALL certificado_proximo_a_vencer (30);
 
 /*
+Tercera Parte del TRABAJO PRACTICO EVOLUTIVO
 
-TERCERA PARTE DEL TRABAJO PRACTICO EVOLUTIVO - TRIGGERS -
+Triggers
 
 */
-
-USE servicios_terceros_lh;
 
 /* El procedimiento tiene por objeto validar el ingreso del DNI de un nuevo usuario
 para evitar 0 y números negativos. Un mensaje de error aparece cuando se quebranta la regla.
@@ -3279,10 +3205,18 @@ BEGIN
 END //
 
 select * from usuario;
+
+/*
+Para verificar su funcionamiento, favor de ejecutar
+
+//////////////////////////////////////////////////////////////////
 INSERT INTO usuario (dni) VALUES (0);  -- para que genere error
 select * from usuario;
 INSERT INTO usuario (dni) VALUES (-1);  -- para que genere error
 select * from usuario;
+//////////////////////////////////////////////////////////////////
+
+*/
 
 /*
 El Laboratorio desea crear un bono o beneficio para su personal por productividad.
@@ -3341,8 +3275,9 @@ VALUES ('2024-11-04 12:34:00', 'movil', 24, 9, 45, 42, 27);
 INSERT INTO ensayo (fecha, locacion, operador1, operador2, operador3, operador4, protocolo)
 VALUES ('2024-11-05 08:12:00', 'laboratorio', 34, 2, 11, 28, 6);
 
-SELECT * FROM ENSAYO;
-select * from cotizacion;
+SELECT * FROM registro_operadores_ensayos;
+-- SELECT * FROM ENSAYO;
+-- select * from cotizacion;
 
 /*
 Se desea realizar el módulo de auditoría para verificar modificaciones en las cotizaciones.
@@ -3370,9 +3305,8 @@ CREATE TABLE auditoria_cotizaciones (
     id INT AUTO_INCREMENT PRIMARY KEY,
     idCotizacion INT,
     fecha_actualizacion DATETIME,
-    idCotizador INT,  -- Personal que realizó la actualización (cotizador), el que modifica
+    idCotizador INT,  -- Personal que realizó la cotizacion anterior
     accion VARCHAR(50), -- Tipo de acción: 'Actualización'
-    idCotizador_OLD INT, -- antigüo cotizador
     cantidad INT,
     detalle_cotizacion INT,
     precio_unitario FLOAT,
@@ -3394,9 +3328,9 @@ BEGIN
     -- Insertar en la tabla de auditoría con la fecha de actualización, el cotizador y la cotización anterior, ya que la actualizada 
     -- estará en la tabla disponible
     
-    INSERT INTO auditoria_cotizaciones (idCotizacion, fecha_actualizacion, idCotizador, accion, idCotizador_OLD, cantidad,
+    INSERT INTO auditoria_cotizaciones (idCotizacion, fecha_actualizacion, idCotizador, accion, cantidad,
     detalle_cotizacion, precio_unitario, valor_dolar, total, observaciones)
-    VALUES (OLD.idCotizacion, NOW(), NEW.cotizador, 'Actualización', OLD.cotizador, OLD.cantidad,
+    VALUES (OLD.idCotizacion, NOW(), OLD.cotizador, 'Actualización', OLD.cantidad,
     OLD.detalle_cotizacion, OLD.precio_unitario, OLD.valor_dolar, OLD.total, OLD.observaciones);
 END //
 
@@ -3425,10 +3359,15 @@ SET cantidad = 96, precio_unitario = 88.00, cotizador = 4
 WHERE idCotizacion = 55;
 
 select * from auditoria_cotizaciones;
-select * from cotizacion;
+-- select * from cotizacion;
 
 select * from cotizacion where idCotizacion > 50;
 
 -- truncate table auditoria_cotizaciones;
+
+
+
+
+
 
 -- Miguel Flores   ####    miguelflores.devops@gmail.com
