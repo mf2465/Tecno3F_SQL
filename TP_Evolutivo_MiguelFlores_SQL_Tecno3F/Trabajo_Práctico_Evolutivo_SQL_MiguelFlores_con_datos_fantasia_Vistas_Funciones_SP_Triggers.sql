@@ -3285,6 +3285,7 @@ Es necesario incoporar la columna cotizador a la tabla para luego poder utilizar
 en una tercera donde registrará la actividad del mismo en este sector que es tan sensible
 en la rentabilidad del negocio.
 */
+USE servicios_terceros_lh;
 
 -- Agrego columna cotizador a la tabla cotizacion
 ALTER TABLE cotizacion
