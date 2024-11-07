@@ -17,9 +17,6 @@ BEGIN
     END IF;
 END //
 
-/*
-*/
-
 select * from usuario;
 INSERT INTO usuario (dni) VALUES (0);  -- Esto fallará debido al trigger.
 select * from usuario;
