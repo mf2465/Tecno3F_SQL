@@ -166,7 +166,7 @@ VALUES
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-12-07 01:23:28', '2022-12-19 01:23:00', 19);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-11-26 16:21:08', '2022-12-08 16:21:00', 5);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-10-22 22:02:15', '2024-11-07 22:02:00', 27);
-insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-10-09 07:32:16', '2023-10-23 07:32:00', 25);
+insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-10-09 07:32:16', '2023-10-12 07:32:00', 25);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-02-08 03:10:03', '2023-02-20 03:10:00', 2);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-11-15 12:56:37', '2022-11-27 12:56:00', 28);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-10-25 22:46:37', '2024-11-06 22:46:00', 25);
@@ -187,7 +187,7 @@ insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProv
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-04-01 19:31:54', '2024-04-13 19:31:00', 42);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-03-13 22:43:42', '2024-03-25 22:43:00', 40);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-08-09 07:26:38', '2023-08-21 07:26:00', 39);
-insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-08-12 05:10:53', '2024-08-24 05:10:00', 14);
+insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-08-12 05:10:53', '2024-08-14 05:10:00', 14);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-12-20 19:32:48', '2024-01-01 19:32:00', 35);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-06-03 04:57:23', '2022-06-15 04:57:00', 11);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-09-18 08:17:53', '2024-09-30 08:17:00', 18);
@@ -200,9 +200,9 @@ insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProv
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-12-07 07:30:24', '2023-12-19 07:30:00', 17);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-07-30 09:37:18', '2023-08-11 09:37:00', 17);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-10-15 13:10:33', '2022-10-27 13:10:00', 35);
-insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-12-13 00:31:00', '2023-12-25 00:31:00', 1);
+insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-12-13 00:31:00', '2023-12-15 00:31:00', 1);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-09-08 15:02:25', '2022-09-20 15:02:00', 13);
-insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-07-24 00:05:08', '2024-08-05 00:05:00', 47);
+insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-07-24 00:05:08', '2024-07-25 00:05:00', 47);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-10-28 14:07:14', '2023-11-09 14:07:00', 37);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-11-14 11:32:30', '2023-11-26 11:32:00', 3);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-06-06 01:59:07', '2022-06-18 01:59:00', 18);
@@ -228,7 +228,7 @@ insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProv
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-07-23 10:01:39', '2024-08-04 10:01:00', 2);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-07-16 23:20:29', '2024-07-28 23:20:00', 25);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-09-25 06:52:53', '2024-10-07 06:52:00', 21);
-insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-02-14 05:13:51', '2024-02-26 05:13:00', 41);
+insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-02-14 05:13:51', '2024-02-16 05:13:00', 41);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-11-29 10:00:37', '2022-12-11 10:00:00', 20);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-05-29 08:43:33', '2024-06-10 08:43:00', 1);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-06-22 04:20:29', '2024-07-04 04:20:00', 40);
@@ -244,7 +244,7 @@ insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProv
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-05-30 02:34:50', '2024-06-11 02:34:00', 15);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-03-11 13:04:53', '2023-03-23 13:04:00', 48);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-08-11 13:46:49', '2024-08-23 13:46:00', 16);
-insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-02-02 21:09:53', '2024-02-14 21:09:00', 14);
+insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-02-02 21:09:53', '2024-02-03 21:09:00', 14);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-11-23 16:43:42', '2022-12-05 16:43:00', 11);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-09-22 21:08:51', '2023-10-04 21:08:00', 40);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-10-25 06:12:50', '2023-11-06 06:12:00', 36);
@@ -258,7 +258,7 @@ insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProv
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-10-05 07:14:18', '2022-10-17 07:14:00', 44);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-06-23 03:07:42', '2023-07-05 03:07:00', 40);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2024-05-19 13:06:43', '2024-05-31 13:06:00', 29);
-insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-12-03 13:31:06', '2022-12-15 13:31:00', 47);
+insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-12-03 13:31:06', '2022-12-06 13:31:00', 47);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-12-18 18:03:30', '2023-12-30 18:03:00', 33);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2023-03-24 09:22:25', '2023-04-05 09:22:00', 2);
 insert into orden_de_compra (idOrdenCompra, fecha_emision, fecha_entrega, idProveedor) values (null, '2022-07-01 09:30:31', '2022-07-13 09:30:00', 26);
@@ -369,15 +369,17 @@ insert into detalle_orden (idDetalleOrden, idOrdenCompra, idProducto, cantidad, 
 insert into detalle_orden (idDetalleOrden, idOrdenCompra, idProducto, cantidad, precio_venta) values (null, 40, 40, 7, 1);
 insert into detalle_orden (idDetalleOrden, idOrdenCompra, idProducto, cantidad, precio_venta) values (null, 10, 17, 6, 1);
 
--- SET FOREIGN_KEY_CHECKS = 1;
+SET FOREIGN_KEY_CHECKS = 1;
 
+ -- Actualizamos el precio_venta de detalle_orden usando el precio_venta de producto
+ -- para que el ejemplo de base de datos quede consistente en los análisis de consultas
+ 
 DELIMITER $$
 
 CREATE PROCEDURE actualizar_precio_venta_detalle_orden()
 BEGIN
-    -- Actualiza el precio_venta de detalle_orden usando el precio_venta de producto
-    UPDATE detalle_orden deo
-    JOIN producto p ON deo.idProducto = p.idProducto
+    UPDATE detalle_orden AS deo
+    INNER JOIN producto AS p ON deo.idProducto = p.idProducto
     SET deo.precio_venta = p.precio_venta;
 END$$
 
@@ -394,6 +396,112 @@ SET SQL_SAFE_UPDATES = 1;
 
 -- select * from detalle_orden;
 
-/* CONSULTA # 1 */
+/* RESOLUCIONES DE CONSULTAS EXAMEN */
 
+/*
+1- Seleccionar los proveedores que ha emitido ordenes de compra que solo poseen un ítem del
+producto galletita o bien que hayan emitido ordenes de compras en el año 2023 y 2024 inclusive.
+No se admitirán ordenes de compras que no cumplan con la condición primera o que hayan
+emitido ordenes solo en el 2023 o solo en el 2024.
+idProveedor | nombre
+*/
 
+SELECT p.idProveedor, p.nombre 
+FROM proveedores AS p
+INNER JOIN orden_de_compra AS oc ON p.idProveedor = oc.idProveedor
+INNER JOIN detalle_orden AS deo ON oc.idOrdenCompra = deo.idOrdenCompra
+INNER JOIN producto AS po ON deo.idProducto = po.idProducto 
+WHERE ( descripcion = 'galletita' and (SELECT COUNT(*) FROM detalle_orden WHERE idOrdenCompra = oc.idOrdenCompra) = 1) 
+OR (YEAR(oc.fecha_emision) BETWEEN 2023 AND 2024)
+GROUP BY p.idProveedor, p.nombre
+HAVING COUNT(DISTINCT YEAR(oc.fecha_emision)) = 2
+; 
+
+ /*
+ 2- Eliminar los registros de los proveedores que hayan tenido menos de 3 ordenes de compras 
+ en el año 2023
+ */
+ 
+SET FOREIGN_KEY_CHECKS = 0;
+SET SQL_SAFE_UPDATES = 0;
+
+-- cuento la cantidad de proovedores que cumplen con la condición antes de borrarlos
+/*
+SELECT COUNT(*)
+FROM proveedores 
+WHERE idProveedor IN (
+    SELECT idProveedor
+    FROM orden_de_compra
+    WHERE YEAR(fecha_emision) = 2023
+    GROUP BY idProveedor
+    HAVING COUNT(idOrdenCompra) < 3
+);
+*/
+ 
+DELETE
+FROM proveedores 
+WHERE idProveedor IN (
+    SELECT idProveedor
+    FROM orden_de_compra
+    WHERE YEAR(fecha_emision) = 2023
+    GROUP BY idProveedor
+    HAVING COUNT(idOrdenCompra) < 3
+);
+
+-- verifico la diferencia por control interno de desarrollo
+-- SELECT COUNT(*) FROM proveedores; 
+
+SET FOREIGN_KEY_CHECKS = 1;
+SET SQL_SAFE_UPDATES = 1;
+
+/*
+3- Modificar el precio de venta de los productos (solo en la tabla de DETALLE_ORDEN) a razón 
+de 3 veces el precio de compra, solo para aquellos productos que estuvieron en alguna 
+orden de compra cuya diferencia de días entre la "fecha entrega" y la "fecha de emisión" 
+no supere los 3 días.
+*/
+
+-- Nota: Interpreto que el precio de compra se refiere a precio_costo de la tabla producto
+-- También que precio_venta es igual a cantidad por precio de compra.
+
+-- select * from orden_de_compra WHERE DATEDIFF(fecha_entrega, fecha_emision) <= 3;
+
+DELIMITER $$
+
+CREATE PROCEDURE actualizar_precio_venta_detalle_orden_x3_dif_3_dias()
+BEGIN
+    UPDATE detalle_orden AS deo
+	INNER JOIN orden_de_compra AS oc ON deo.idOrdenCompra = oc.idOrdenCompra
+	SET deo.precio_venta = deo.cantidad * (SELECT precio_costo FROM producto AS p WHERE p.idProducto = deo.idProducto) * 3
+	WHERE DATEDIFF(oc.fecha_entrega, oc.fecha_emision) <= 3
+    ;
+END$$
+
+DELIMITER ;
+
+SET SQL_SAFE_UPDATES = 0;
+
+CALL actualizar_precio_venta_detalle_orden_x3_dif_3_dias();
+
+SET SQL_SAFE_UPDATES = 1;
+
+/*
+4- Devolver los 10 productos más vendidos del mes de Noviembre del año 2023,2024.
+TOTAL | idProducto | descripcion
+*/
+
+-- Interpreto que se refire a los meses Noviembre 2023 y Noviembre 2024
+-- y más vendidos, a los que mayor cantidad de producto se entregaron
+
+SELECT 
+    SUM(deo.cantidad) AS Cantidad_vendida,
+    deo.idProducto,
+    p.descripcion
+FROM detalle_orden AS deo
+INNER JOIN orden_de_compra AS oc ON deo.idOrdenCompra = oc.idOrdenCompra
+INNER JOIN producto AS p ON deo.idProducto = p.idProducto
+WHERE (YEAR(oc.fecha_emision) = 2023 AND MONTH(oc.fecha_emision) = 11) 
+   OR (YEAR(oc.fecha_emision) = 2024 AND MONTH(oc.fecha_emision) = 11)
+GROUP BY deo.idProducto, p.descripcion
+ORDER BY Cantidad_vendida DESC
+LIMIT 10;
