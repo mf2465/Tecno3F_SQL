@@ -576,7 +576,7 @@ BEGIN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El producto no existe';
     ELSE
         UPDATE producto
-        SET precio_venta = precio_costo * (p_porcentaje)
+        SET precio_venta = precio_costo * (1 + (p_porcentaje)/100)
         WHERE idProducto = p_idProducto;
 
         INSERT INTO historial_actualizaciones_producto(idProducto, porcentaje_actualizado, fecha_actualizacion)
@@ -586,15 +586,12 @@ END $$
 
 DELIMITER ;
 
--- llamamos al SP para actualizar el idProducto = 1, con el 10% de incremento al precio_costo
+-- llamamos al SP para actualizar el idProducto = 1, con el 15% de incremento al precio_costo
 
+select * from producto where idProducto = 1;
 
-
-CALL actualizar_porcentaje_producto(15, 100); 
+CALL actualizar_porcentaje_producto(1, 15); 
 
 select * from historial_actualizaciones_producto;
  
-
-        UPDATE producto
-        SET precio_venta = precio_costo * (1 + 5 / 100)
-        WHERE idProducto = 15;
+ select * from producto where idProducto = 1;
