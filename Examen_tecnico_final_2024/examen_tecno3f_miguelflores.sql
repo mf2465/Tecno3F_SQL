@@ -593,5 +593,8 @@ select * from producto where idProducto = 1;
 CALL actualizar_porcentaje_producto(1, 15); 
 
 select * from historial_actualizaciones_producto;
+
+-- podemos visualizar el mensaje de error cuando solicitamos para un idProducto > 100
+-- CALL actualizar_porcentaje_producto(150, 15); 
  
- select * from producto where idProducto = 1;
+
