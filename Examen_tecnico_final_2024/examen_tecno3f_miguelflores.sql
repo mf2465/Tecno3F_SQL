@@ -596,5 +596,136 @@ select * from historial_actualizaciones_producto;
 
 -- podemos visualizar el mensaje de error cuando solicitamos para un idProducto > 100
 -- CALL actualizar_porcentaje_producto(150, 15); 
- 
 
+-- -----------------------------------------------------------
+-- ------------------ PREGUNTAS TEORICAS ------------------ -- 
+-- -----------------------------------------------------------
+ 
+/*
+8- Mencionar:
+a- diferencias entre Funciones y Stored Procedure
+b- Direrencia entre hacer un delete de un registro en una tabla y un truncate table
+*/
+
+/*
+a- 
+o Las funciones se pueden llamar desde un procedimiento almacenado, mientras
+que el procedimiento almacenado no se puede llamar desde una función.
+o Una función no permite parámetros de salida, mientras que un procedimiento
+almacenado permite tanto parámetros de salida como de entrada.
+o No puede administrar transacciones dentro de una función, pero puede hacerlo
+dentro de un procedimiento almacenado.
+o Una función tiene un tipo de devolución y devuelve un valor, mientras que el
+procedimiento almacenado no tiene un tipo de devolución y devolver un valor
+es opcional.
+o Una función solo permite una declaración SELECT en ella, mientras que un
+procedimiento almacenado permite SELECCIONAR, INSERTAR, ACTUALIZAR Y
+ELIMINAR.
+o El procedimiento almacenado se puede usar para leer y modificar datos,
+mientras que una función solo puede leerlos.
+o Una función no puede devolver varios conjuntos de resultados, mientras que un
+procedimiento almacenado sí puede.
+
+b- Diferencias entre DELETE y TRUNCATE:
+
+DELETE
+Elimina registros específicos de una tabla basándose en condiciones.
+Permite usar una cláusula WHERE para seleccionar qué registros eliminar.
+Puede ser revertido (rollback) dentro de una transacción.
+No resetea el valor del campo Id autoincremental de la tabla al inicio.
+Permite ejecutar triggers ON DELETE.
+Registra cada operación en el log de transacciones.
+    
+TRUNCATE
+Elimina todos los registros de una tabla de una vez.
+No permite usar condiciones para seleccionar qué registros eliminar.
+Es más rápido que DELETE en grandes tablas.
+No puede ser revertido (rollback).
+Resetea el valor del campo Id autoincremental de la tabla al inicio.
+No activa triggers.
+*/
+
+/*
+9- ¿Que es un JOIN y cuantos tipos existen?
+*/
+
+/*
+La cláusula JOIN permite combinar registros de diferentes tablas.
+Se complementa con la cláusula ON que nos permite establecer la condición por la
+cual queremos unir la tabla, que generalmente son campos que tienen en común las tablas.
+
+Hay varios tipos de JOINs, los principales son:
+INNER JOIN: Combina solo las filas que tienen coincidencias en ambas tablas.
+LEFT JOIN: Combina todas las filas de la tabla del lado izquierdo y las filas correspondientes de la otra tabla, o NULL si no hay coincidencia.
+RIGHT JOIN: Similar al LEFT JOIN pero combina todas las filas de la tabla del lado derecho.
+FULL JOIN: Combina todas las filas de ambas tablas, incluyendo aquellas sin coincidencia en ninguna de las tablas.
+*/
+
+/*
+10- ¿Que son las TRANSACCIONES EN SQL y como funcionan?
+*/
+
+/*
+Una transacción en SQL es un conjunto de operaciones que se ejecutan de forma conjunta, como una unidad de trabajo. 
+Su objetivo es garantizar que los cambios realizados en la base de datos sean consistentes, completos y seguros. 
+Una transacción puede incluir varias operaciones de bases de datos, como INSERT, UPDATE o DELETE, 
+pero estas operaciones no se aplican hasta que la transacción se confirma.
+
+Las transacciones deben cumplir con cuatro propiedades fundamentales conocidas como ACID, que garantizan la integridad 
+de la base de datos:
+
+- Atomicidad:   La transacción es atómica, lo que significa que se ejecuta completamente o no se ejecuta en absoluto. 
+				Si alguna parte de la transacción falla, todos los cambios realizados se revierten.
+- Consistencia: Una transacción lleva a la base de datos de un estado consistente a otro. 
+				Es decir, todas las reglas de integridad definidas (como claves primarias, restricciones de datos, etc.) 
+                deben cumplirse antes y después de la transacción.
+- Aislamiento:  Cada transacción es independiente de las demás. Si varias transacciones se ejecutan simultáneamente, 
+			    los cambios de una transacción no deben ser visibles para otras hasta que se confirme (commit).
+- Durabilidad:  Una vez que una transacción es confirmada (con COMMIT), sus cambios son permanentes, 
+				incluso si el sistema falla después.
+
+En SQL, una transacción se inicia con la instrucción BEGIN TRANSACTION o su equivalente, que indica que las operaciones 
+realizadas a continuación son parte de una transacción. Si todas las operaciones dentro de la transacción se ejecutan 
+correctamente, se utiliza COMMIT para confirmar los cambios y hacerlos permanentes. Si ocurre algún error, se usa ROLLBACK 
+para deshacer todas las operaciones realizadas dentro de la transacción, dejando la base de datos 
+tal como estaba antes de comenzar.
+*/
+
+/*
+11- Explica diferencia entre UNION y UNION ALL
+*/
+
+/*
+UNION y UNION ALL, se utilizan para combinar los resultados de dos o más consultas SELECT. 
+La diferencia clave entre ellas es cómo manejan los duplicados.
+
+UNION
+Elimina duplicados: Cuando usas UNION, SQL combina los resultados de ambas consultas, pero elimina las filas duplicadas 
+que aparecen en ambas consultas. Si una fila aparece en ambas consultas, solo se mostrará una vez en el resultado final.
+El rendimiento es más lento porque, para eliminar los duplicados, SQL tiene que ordenar los resultados.
+
+UNION ALL
+No elimina duplicados: A diferencia de UNION, UNION ALL no elimina los duplicados. 
+Si una fila aparece en ambas consultas, se mostrará todas las veces que aparezca. 
+Es decir, si un registro está presente en ambos conjuntos de resultados, aparecerá en el resultado final 
+tantas veces como se repita. Es más rápido que UNION.
+*/
+
+/*
+12- Tengo que mostrar en pantalla un número de teléfono celular de un cliente, si no tiene el
+telefono fijo y si no tiene ambos, debo mostrar el texto ‘SIN TELEFONO’... ¿Qué función NATIVA
+puedo utilizar para este caso?
+*/
+
+/*
+La función COALESCE() devuelve el primer valor no nulo de los argumentos que se le pasen. 
+Es decir, evalúa cada valor de izquierda a derecha y devuelve el primero que no sea NULL. 
+Si todos los valores son NULL, entonces COALESCE() devuelve NULL.
+
+Entonces, podemos utilizar COALESCE() para evaluar el teléfono celular primero, luego el teléfono fijo 
+y, si ambos son NULL, devolver el texto ‘SIN TELEFONO’.
+*/
+
+-- EXAMEN TECNICO FINAL 
+-- SQL 2024 # Tecno3F # prof.: Diego Giménez + Gabriel Sebastián Román
+-- Miguel Flores | DNI 24508119 | miguelflores.devops@gmail.com 
