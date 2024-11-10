@@ -494,7 +494,7 @@ TOTAL | idProducto | descripcion
 -- y más vendidos, a los que mayor cantidad de producto se entregaron
 
 SELECT 
-    SUM(deo.cantidad) AS Cantidad_vendida,
+    SUM(deo.cantidad) AS TOTAL,
     deo.idProducto,
     p.descripcion
 FROM detalle_orden AS deo
@@ -503,5 +503,98 @@ INNER JOIN producto AS p ON deo.idProducto = p.idProducto
 WHERE (YEAR(oc.fecha_emision) = 2023 AND MONTH(oc.fecha_emision) = 11) 
    OR (YEAR(oc.fecha_emision) = 2024 AND MONTH(oc.fecha_emision) = 11)
 GROUP BY deo.idProducto, p.descripcion
-ORDER BY Cantidad_vendida DESC
+ORDER BY TOTAL DESC
 LIMIT 10;
+
+/*
+5- Crear una vista en el cual muestre el total de cada orden de compra
+idOrdenCompra | Total | nombreProveedor
+*/
+
+CREATE VIEW vista_total_orden_de_compra AS
+SELECT 
+    oc.idOrdenCompra,
+    SUM(deo.cantidad * deo.precio_venta) AS TOTAL,
+    p.nombre AS nombreProveedor
+FROM orden_de_compra AS oc
+INNER JOIN detalle_orden AS deo ON oc.idOrdenCompra = deo.idOrdenCompra
+INNER JOIN proveedores AS p ON oc.idProveedor = p.idProveedor
+GROUP BY oc.idOrdenCompra, p.nombre
+;
+
+SELECT * FROM vista_total_orden_de_compra;
+
+/*
+6- Eliminar las ordenes de compra entre los ids 10 y la 15, 
+y además los detalles que tiene cada orden.
+*/
+
+DELETE FROM detalle_orden
+WHERE idOrdenCompra BETWEEN 10 AND 15;
+
+DELETE FROM orden_de_compra
+WHERE idOrdenCompra BETWEEN 10 AND 15;
+
+-- existe la posibilidad de eliminar en cascada
+-- para ello hay que modificar la estructura de las tablas ( ON DELETE CASCADE )
+-- y luego se eliminará el contenido asociado automáticamente en un solo paso.
+
+/*
+7- Crear un SP que reciba 2 parametros: idProducto y porcentaje. 
+Este debe actualizar el porcentaje del producto que se le esta enviando
+por parametro, ademas se debe dejar un registro del producto que se actualizo , 
+el porcentaje y la fecha en una tabla de historial. 
+Si el producto no existe, debe arrojar un error y no se deberá
+realizar el registro en la tabla de historial.
+*/
+
+CREATE TABLE IF NOT EXISTS historial_actualizaciones_producto (
+    idHistorial INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    idProducto INTEGER,
+    porcentaje_actualizado FLOAT,
+    fecha_actualizacion DATETIME,
+    FOREIGN KEY (idProducto) REFERENCES producto(idProducto)
+);
+
+SET FOREIGN_KEY_CHECKS = 0;
+SET SQL_SAFE_UPDATES = 0;
+
+DELIMITER $$
+
+CREATE PROCEDURE actualizar_porcentaje_producto(
+    IN p_idProducto INT,      -- Parámetro de entrada: ID del producto
+    IN p_porcentaje FLOAT     -- Parámetro de entrada: porcentaje a actualizar
+)
+BEGIN
+	DECLARE existencia INT;
+
+    SELECT COUNT(*) INTO existencia
+    FROM producto
+    WHERE idProducto = p_idProducto;
+
+    IF existencia = 0 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El producto no existe';
+    ELSE
+        UPDATE producto
+        SET precio_venta = precio_costo * (p_porcentaje)
+        WHERE idProducto = p_idProducto;
+
+        INSERT INTO historial_actualizaciones_producto(idProducto, porcentaje_actualizado, fecha_actualizacion)
+        VALUES (p_idProducto, p_porcentaje, NOW());
+    END IF;
+END $$
+
+DELIMITER ;
+
+-- llamamos al SP para actualizar el idProducto = 1, con el 10% de incremento al precio_costo
+
+
+
+CALL actualizar_porcentaje_producto(15, 100); 
+
+select * from historial_actualizaciones_producto;
+ 
+
+        UPDATE producto
+        SET precio_venta = precio_costo * (1 + 5 / 100)
+        WHERE idProducto = 15;
