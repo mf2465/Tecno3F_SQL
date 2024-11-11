@@ -506,6 +506,10 @@ GROUP BY deo.idProducto, p.descripcion
 ORDER BY TOTAL DESC
 LIMIT 10;
 
+-- En la query no se visualizarán 10 registros porque no hubo tal cantidad de ventas en Noviembre 2023 y en 2024 no tuvo ventas
+-- Estimo que la formulación es correcta para los datos presentes en la DB
+
+
 /*
 5- Crear una vista en el cual muestre el total de cada orden de compra
 idOrdenCompra | Total | nombreProveedor
@@ -535,6 +539,7 @@ WHERE idOrdenCompra BETWEEN 10 AND 15;
 DELETE FROM orden_de_compra
 WHERE idOrdenCompra BETWEEN 10 AND 15;
 
+-- se eliminan en ese orden para que no genere error
 -- existe la posibilidad de eliminar en cascada
 -- para ello hay que modificar la estructura de las tablas ( ON DELETE CASCADE )
 -- y luego se eliminará el contenido asociado automáticamente en un solo paso.
@@ -542,7 +547,7 @@ WHERE idOrdenCompra BETWEEN 10 AND 15;
 /*
 7- Crear un SP que reciba 2 parametros: idProducto y porcentaje. 
 Este debe actualizar el porcentaje del producto que se le esta enviando
-por parametro, ademas se debe dejar un registro del producto que se actualizo , 
+por parametro, ademas se debe dejar un registro del producto que se actualizó, 
 el porcentaje y la fecha en una tabla de historial. 
 Si el producto no existe, debe arrojar un error y no se deberá
 realizar el registro en la tabla de historial.
@@ -587,10 +592,11 @@ END $$
 DELIMITER ;
 
 -- llamamos al SP para actualizar el idProducto = 1, con el 15% de incremento al precio_costo
+-- este mismo SP se puede utilizar para bonificar, al ingresar valores negativos
 
 select * from producto where idProducto = 1;
 
-CALL actualizar_porcentaje_producto(1, 15); 
+CALL actualizar_porcentaje_producto(1, 10); 
 
 select * from historial_actualizaciones_producto;
 
@@ -724,6 +730,14 @@ Si todos los valores son NULL, entonces COALESCE() devuelve NULL.
 
 Entonces, podemos utilizar COALESCE() para evaluar el teléfono celular primero, luego el teléfono fijo 
 y, si ambos son NULL, devolver el texto ‘SIN TELEFONO’.
+
+Ejemplo:
+SELECT 
+	cliente.nombre,
+    cliente.apellido,
+    COALESCE(cliente.telefonoCelular, cliente.telefonoFijo, 'SIN TELEFONO') AS teléfono
+FROM 
+    cliente;
 */
 
 -- EXAMEN TECNICO FINAL 
